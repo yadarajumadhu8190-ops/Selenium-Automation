@@ -23,7 +23,7 @@ public class TC001AccountRegistration extends BaseClass {
 		hp.clickMyAccount();
 		hp.clickRegister(); 
 		
-		Account RegistrationPage regpage=new AccountRegistrationPage(driver);
+		AccountRegistrationPage regpage=new AccountRegistrationPage(driver);
 		regpage.enterFirstName("Madhu");
 		regpage.enterLastName("kumar");
 		regpage.enterEmail("madhu@test.com");
