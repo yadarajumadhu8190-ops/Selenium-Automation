@@ -40,7 +40,7 @@ Loginpage lp=new Loginpage(driver);
 	//Data is invalid -- login success --test fail--logout
 	//Data is invalid --login failed--test pass
 	//this is pradeep
-	//this is madhu completed
+	//this is madhu completed ui git
 	if(exp.equalsIgnoreCase("Valid"))
 	{
 		if(targetPage=true)
