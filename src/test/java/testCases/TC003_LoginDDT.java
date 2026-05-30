@@ -39,7 +39,7 @@ Loginpage lp=new Loginpage(driver);
 	//Data is valid --login failed--test fail
 	//Data is invalid -- login success --test fail--logout
 	//Data is invalid --login failed--test pass
-	//iam madhu
+	//this is pradeep
 	if(exp.equalsIgnoreCase("Valid"))
 	{
 		if(targetPage=true)
