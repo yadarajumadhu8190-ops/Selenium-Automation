@@ -1,0 +1,64 @@
+<Configuration status="WARN">
+
+<Properties>
+   <Property name="basepath">./logs</Property>
+</Properties>
+
+    <Appenders>
+
+        <!-- Console -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %c{1} - %msg%n"/>
+        </Console>
+
+        <!-- Execution Logs -->
+        <RollingFile name="ExecutionLog"
+                     fileName="(basepath)/automation.log"
+                     filePattern="${basepath}/automation-%%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %c - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+        <!-- Error Logs -->
+        <RollingFile name="ErrorLog"
+                     fileName="logs/error.log"
+                     filePattern="logs/error-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %c - %msg%n</Pattern>
+            </PatternLayout>
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <!-- Test Cases Package -->
+        <Logger name="testCases" level="debug" additivity="false">
+            <AppenderRef ref="ExecutionLog"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- Page Objects -->
+        <Logger name="pageObjects" level="info" additivity="false">
+            <AppenderRef ref="ExecutionLog"/>
+        </Logger>
+
+        <!-- Root -->
+        <Root level="info">
+            <AppenderRef ref="ErrorLog"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
