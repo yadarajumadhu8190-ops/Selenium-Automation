@@ -1,6 +1,7 @@
 package testbase;
 
 import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -12,6 +13,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -73,10 +75,11 @@ return (generatedString+"@"+generatednumber);
 
 }
 public String captureScreen(String tname) throws IOException {
-    String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-TakeScreenshot takescreenshot=(TakeScreenshot) driver;
-File sourcefile=takeScreenshot.getScreenshotAs(OutputType.FILE);
-String targetFilePath=System.getProperty("user,dir")+"\\screenshots\\"+tname+"_"+timestamp;
+   // String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+TakesScreenshot takescreenshot=(TakesScreenshot) driver;
+File sourcefile=takescreenshot.getScreenshotAs(OutputType.FILE);
+String targetFilePath=System.getProperty("user,dir")+"\\screenshots\\"+tname+"_";
+return targetFilePath;
 
 
 }
