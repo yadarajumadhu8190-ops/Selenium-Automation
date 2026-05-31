@@ -42,7 +42,6 @@ Loginpage lp=new Loginpage(driver);
 	//this is pradeep
 	//this is madhu
 	//git completed 
-	//master
 	if(exp.equalsIgnoreCase("Valid"))
 	{
 		if(targetPage=true)
